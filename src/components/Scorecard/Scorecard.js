@@ -42,7 +42,7 @@ export default function Scorecard() {
                   <input type="number"
                     onChange={(e) => handleScoreChange(e, holeIndex, score.name)}
                     className="w-full p-2 absolute top-0 left-0 text-center"
-                    value={score.results[holeIndex]}
+                    value={score.results[holeIndex] ?? ""}
                   />
                 </div>    
               )
