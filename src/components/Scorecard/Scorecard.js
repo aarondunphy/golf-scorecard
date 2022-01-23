@@ -23,22 +23,22 @@ export default function Scorecard() {
   return (
     <>
       <div className="flex">
-        <div className="w-1/6 text-center border border-solid p-2">Hole</div>
-        <div className="w-1/6 text-center border border-solid p-2">Yardage</div>
+        <div className="w-1/6 text-center border border-solid p-2 text-xs md:text-lg">Hole</div>
+        <div className="w-1/6 text-center border border-solid p-2 text-xs md:text-lg">Yards</div>
         {players.map((player, index) => {
           return (
-            <div key={index} className="w-1/6 text-center border border-solid p-2">{player.name}</div>    
+            <div key={index} className="w-1/6 text-center border border-solid p-2 text-xs md:text-lg">{player.name}</div>    
           )
         })}
       </div>
       {garons9Hole.map((hole, holeIndex) => {
         return (
           <div key={hole.holeNo} className="flex">
-            <div className="w-1/6 text-center border border-solid p-2">{hole.holeNo}</div>
-            <div className="w-1/6 text-center border border-solid p-2">{hole.yardage}</div>
+            <div className="w-1/6 text-center border border-solid p-2 text-xs md:text-lg">{hole.holeNo}</div>
+            <div className="w-1/6 text-center border border-solid p-2 text-xs md:text-lg">{hole.yardage}</div>
             {scores.map((score, index) => {
               return (
-                <div key={`${hole.holeNo}-${index}`} className="w-1/6 text-center border border-solid relative">
+                <div key={`${hole.holeNo}-${index}`} className="w-1/6 text-center border border-solid relative text-xs md:text-lg">
                   <input type="number"
                     onChange={(e) => handleScoreChange(e, holeIndex, score.name)}
                     className="w-full p-2 absolute top-0 left-0 text-center"
@@ -51,11 +51,11 @@ export default function Scorecard() {
         )
       })}
       <div className="flex">
-        <div className="w-1/6 text-center border border-solid p-2">Total</div>
-        <div className="w-1/6 text-center border border-solid p-2">{yardageTotal}</div>
+        <div className="w-1/6 text-center border border-solid p-2 text-xs md:text-lg">Total</div>
+        <div className="w-1/6 text-center border border-solid p-2 text-xs md:text-lg">{yardageTotal}</div>
         {scores.map((score, index) => {
           return (
-            <div key={index} className="w-1/6 text-center border border-solid p-2">
+            <div key={index} className="w-1/6 text-center border border-solid p-2 text-xs md:text-lg">
               {score.results.reduce((prevValue, currentValue) => currentValue += prevValue, 0)}
             </div>
           )
